@@ -99,3 +99,11 @@ export default App;
   font-family: Arial, Helvetica, sans-serif;
   color: #222222;
   }
+
+* Install react and react dom packages too using this command
+
+npm install react react-dom
+
+- Buidling and Serving with webpack now
+  - It will take code in source directory and perform operations on it like converting JSX to JS and ES6
+    and host our public directory
