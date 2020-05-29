@@ -1,0 +1,36 @@
+{
+  "name": "ReactEcoSystem",
+  "version": "1.0.0",
+  "description": "Building a React Project with Modern Techniques Using Ecosystem tools like Redux, Thunk, Reselect, styled components, Testing alot more",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AsadRz/ReactEcoSystem.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AsadRz/ReactEcoSystem/issues"
+  },
+  "homepage": "https://github.com/AsadRz/ReactEcoSystem#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.1",
+    "@babel/preset-env": "^7.10.1",
+    "@babel/preset-react": "^7.10.1",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^3.5.3",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
