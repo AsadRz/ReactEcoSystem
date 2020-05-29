@@ -105,5 +105,56 @@ export default App;
 npm install react react-dom
 
 - Buidling and Serving with webpack now
+
   - It will take code in source directory and perform operations on it like converting JSX to JS and ES6
     and host our public directory
+
+- First we need to install all packages that we need
+
+npm install --save-dev webpack webpack-cli webpack-dev-server style-loader css-loader babel-loader
+
+- Then we define webpack.config file to set the configurations for it in root directory.
+
+const path = require('path');
+const webpack = require('webpack');
+
+module.exports = {
+entry: './src/index.js',
+mode: 'development', // webpack in development mode
+/_
+Now we will define the rules how webpack will convert JSX into JS and how it will transpile code using loaders
+_/
+module: {
+rules: [
+{
+test: /\.(js|jsx)$/,
+                exclude: /(node_modules)/,
+                loader: 'babel-loader',
+                options: { presets: ["@babel/env"] }
+            },
+            {
+                test: /\.css$/,
+use: ["style-loader", "css-loader"]
+}
+]
+},
+resolve: { extensions: ['*', '.js', '.jsx'] },
+output: {
+path: path.resolve(**dirname, 'dist/'),
+publicPath: '/dist/',
+filename: 'bundle.js'
+},
+devServer: {
+contentBase: path.join(**dirname, 'public/'),
+port: 3000,
+publicPath: 'http://localhost:3000/dist/',
+hotOnly: true
+},
+plugins: [new webpack.HotModuleReplacementPlugin()]
+};
+
+.babel-rc file
+
+{
+"presets": ["@babel/preset-env", "@babel/preset-react"]
+}
