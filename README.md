@@ -158,3 +158,5 @@ plugins: [new webpack.HotModuleReplacementPlugin()]
 {
 "presets": ["@babel/preset-env", "@babel/preset-react"]
 }
+
+- After all this we need to wrap our APP export in APP.js in hot(module)(App) after installing packagae 'react-hot-loader'
