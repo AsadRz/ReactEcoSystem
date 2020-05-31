@@ -1,20 +1,24 @@
 import React from 'react';
 import { Paper, Button, Grid } from '@material-ui/core';
 
-const TodoListItem = (todo) =>
+const TodoListItem = ({ todo, onRemovePressed }) =>
 {
     return (
         <Paper style={{ margin: 16, padding: 16 }}>
             <Grid container>
-                <Grid xs={2} md={2}></Grid>
+                <Grid xs={2} md={2} item></Grid>
                 <Grid xs={8} md={8} item style={{ paddingRight: 16 }}>
-                    <h3>{todo.todo.text}</h3>
+                    <h3>{todo.text}</h3>
                 </Grid>
                 <Grid xs={2} md={1} item>
                     <Button
                         fullWidth
                         color="secondary"
                         variant="contained"
+                        onClick={() =>
+                        {
+                            onRemovePressed(todo.text)
+                        }}
                     >
                         Remove
                     </Button>

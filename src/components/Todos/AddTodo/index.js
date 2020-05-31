@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { TextField, Paper, Button, Grid } from '@material-ui/core';
+import { connect } from 'react-redux';
+import { createTodo } from '../../../actions';
 
-const AddTodo = props =>
+const AddTodo = ({ todos, onCreatePressed }) =>
 {
     const [inputValue, setInputValue] = useState('');
     return (
@@ -12,7 +14,7 @@ const AddTodo = props =>
                         placeholder="Add Todo here"
                         value={inputValue}
                         onChange={e => setInputValue(e.target.value)}
-                        onKeyPress={props.onInputKeyPress}
+                        onKeyPress={todos.onInputKeyPress}
                         fullWidth
                     />
                 </Grid>
@@ -21,7 +23,16 @@ const AddTodo = props =>
                         fullWidth
                         color="secondary"
                         variant="outlined"
-                        onClick={props.onButtonClick}
+                        onClick={() =>
+                        {
+                            if (inputValue !== "") {
+                                const isDuplicateText = todos.some(todo => todo.text === inputValue)
+                                if (!isDuplicateText) {
+                                    onCreatePressed(inputValue);
+                                    setInputValue('');
+                                }
+                            }
+                        }}
                     >
                         ADD
         </Button>
@@ -31,4 +42,12 @@ const AddTodo = props =>
     )
 }
 
-export default AddTodo;
+const mapStatetoProps = state => ({
+    todos: state.todos,
+});
+
+const mapDispatchToProps = dispatch => ({
+    onCreatePressed: text => dispatch(createTodo(text))
+});
+
+export default connect(mapStatetoProps, mapDispatchToProps)(AddTodo);
