@@ -1,7 +1,7 @@
 import React from 'react';
 import { Paper, Button, Grid } from '@material-ui/core';
 
-const TodoListItem = ({ todo, onRemovePressed }) =>
+const TodoListItem = ({ todo, onRemovePressed, onCompletedPressed }) =>
 {
     return (
         <Paper style={{ margin: 16, padding: 16 }}>
@@ -23,15 +23,22 @@ const TodoListItem = ({ todo, onRemovePressed }) =>
                         Remove
                     </Button>
                 </Grid>
-                <Grid xs={2} md={1} item>
-                    <Button
-                        fullWidth
-                        color="primary"
-                        variant="contained"
-                    >
-                        Complete
+                {
+                    todo.isCompleted === true ? null :
+                        <Grid xs={2} md={1} item>
+                            <Button
+                                fullWidth
+                                color="primary"
+                                variant="contained"
+                                onClick={() =>
+                                {
+                                    onCompletedPressed(todo.text)
+                                }}
+                            >
+                                Complete
                     </Button>
-                </Grid>
+                        </Grid>
+                }
             </Grid>
         </Paper >
     )
