@@ -1,13 +1,14 @@
 import React from 'react';
 import './App.css';
-import { hot } from 'react-hot-loader'
+import { hot } from 'react-hot-loader';
+import Layout from './components/Layout';
 
 const App = () => 
 {
     return (
-        <div className="App">
-            <h1>Hello, Asad!!!</h1>
-        </div>
+        <React.Fragment>
+            <Layout />
+        </React.Fragment>
     );
 }
 
